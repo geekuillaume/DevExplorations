@@ -1,11 +1,11 @@
 {
-  "name": "overreacted",
+  "name": "devexplorations",
   "private": true,
-  "description": "Overreacted",
+  "description": "DevExplorations",
   "version": "1.0.0",
-  "author": "Dan Abramov <dan.abramov@me.com>",
+  "author": "Guillaume Besson <guillaume@besson.co>",
   "bugs": {
-    "url": "https://github.com/gaearon/overreacted.io/issues"
+    "url": "https://github.com/geekuillaume/devexplorations/issues"
   },
   "dependencies": {
     "gatsby": "^2.0.76",
@@ -45,7 +45,7 @@
     "gh-pages": "^1.2.0",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://overreacted.io",
+  "homepage": "https://blog.besson.co",
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",

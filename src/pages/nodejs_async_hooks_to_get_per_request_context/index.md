@@ -126,9 +126,9 @@ We see that our two requests were assigned two `asyncId`: 6 and 31. Reading our 
 From the `readAndSendFile` function, we can get our original request `asyncId` by retracing our "async path". For example, for our first request, we start with an `asyncId` equals to 13 and then we get 13 → 12 → 11 → 9 → 6.
 
 
-## Using all of these to get something useful
+## Getting something useful
 
-We all of these, we can create two functions to create and get a context object for each of our requests. This can also be used for any other usage, not only HTTP server.
+With all of these, we can create two functions to create and get a context object for each of our requests. This can also be used for any other usage, not only HTTP server.
 
 ```js
 const async_hooks = require('async_hooks');

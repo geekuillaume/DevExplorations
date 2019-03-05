@@ -216,4 +216,4 @@ A real-life usage would be creating a context for each HTTP request, generating 
 
 You should be careful about how much information you include in your context. This should be kept as simple as possible to keep the data flow in your program simple to understand and prevent edge cases which can create bugs. Using this kind of context will also confuse tools like TypeScript which won't be able to know what's in your current context.
 
-Keep in mind that the `async_hooks` is still experimental but if you like to live on the edge, go and try it!
+Keep in mind that the [`async_hooks`](https://nodejs.org/api/async_hooks.html) is still experimental but if you like to live on the edge, go and try it!

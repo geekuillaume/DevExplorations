@@ -4,9 +4,9 @@ date: '2019-03-04'
 spoiler: 'Getting one awesome feature from PHP in NodeJS: per-request context'
 ---
 
-I got a problem recently when I was building a HTTP server in NodeJS. I'm logging things in a lot of places inside my codebase and I have a unique ID for each request. I now want to append this ID to each of my log messages to trace what's happening in each request. How to do this?
+I recently got a problem when I was building a HTTP server in NodeJS. I'm logging things in a lot of places inside my codebase and I have a unique ID for each request. I want to append this ID to each of my log messages to trace what's happening in each request. How to efficiently do this?
 
-The simplest way is to pass this request ID as an argument in each of my functions. The problem with this is that it's not maintainable. For example, if I'm 5 functions deep in my stack and I want to log something, I need to edit 5 functions to add an argument and edit every function call.
+The simplest way is to pass this request ID as an argument in each of my functions. The problem with this is that it's not maintainable: if I'm 5 functions deep in my stack and I want to log something, I need to edit 5 functions to add an argument and edit every function call.
 
 You can make sure to always pass a "context" object in every one of your function but there is still a problem. I'm using a SQL lib which can be configured to run a function when a long query is detected but this function is called only with the query string. I cannot pass my request context to it.
 
@@ -65,7 +65,7 @@ Let's see what happened here.
 - The `Timeout` resource callback was called and we logged the current `asyncId` which is equals to 2
 - The `Timeout` resource was destroyed and our `destroy` hook was triggered
 
-There are also two other hooks: `before` and `after` but I haven't found use for them yet. Tell me if you have some ideas and I'll add them to this post.
+There are also two other hooks: `before` and `after`. They can be used to monitor the timings of some asynchronous resources like external HTTP requests or SQL queries.
 
 ## Okay, but what's the point?
 
@@ -216,4 +216,4 @@ A real-life usage would be creating a context for each HTTP request, generating 
 
 You should be careful about how much information you include in your context. This should be kept as simple as possible to keep the data flow in your program simple to understand and prevent edge cases which can create bugs. Using this kind of context will also confuse tools like TypeScript which won't be able to know what's in your current context.
 
-Keep in mind that the `async_hooks` is still experimental but if you like to be on the edge, go and try it!
+Keep in mind that the `async_hooks` is still experimental but if you like to live on the edge, go and try it!
